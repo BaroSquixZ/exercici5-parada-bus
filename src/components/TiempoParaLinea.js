@@ -1,8 +1,8 @@
 export const TiempoParaLinea = (props) => {
-  const { tiempo, linea } = props;
+  const { bus } = props;
   return (
     <h2>
-      Tiempo para la línea {linea}: {tiempo}
+      Tiempo para la línea {bus.line}: {bus["text-ca"]}
     </h2>
   );
 };
