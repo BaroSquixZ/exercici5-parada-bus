@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Display } from "./components/Display.js";
+import { FormNumParada } from "./components/FormNumParada.js";
 import { FormTiempoLlegarLinea } from "./components/FormTiempoLlegarLinea.js";
 import { TiempoParaLinea } from "./components/TiempoParaLinea.js";
 
 function App() {
   const [bus, setBus] = useState({});
+  const [error, setError] = useState(false);
   return (
     <div className="contenedor">
       <header className="cabecera">
@@ -13,11 +15,7 @@ function App() {
         <TiempoParaLinea bus={bus} />
       </header>
       <section className="forms">
-        <form>
-          <label htmlFor="num-parada">Parada nº: </label>
-          <input type="number" id="num-parada" />
-          <button type="submit">Buscar</button>
-        </form>
+        <FormNumParada setError={setError} setBus={setBus} bus={bus} />
         <FormTiempoLlegarLinea bus={bus} setBus={setBus} />
       </section>
     </div>
