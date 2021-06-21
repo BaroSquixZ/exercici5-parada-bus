@@ -21,18 +21,26 @@ export const FormNumParada = (props) => {
   };
 
   const comprobarEstado = (e) => {
-    const linea = e.target.value;
+    e.preventDefault();
+    const linea = buscarLinea(e);
+    console.log(linea);
     const response = tmbAPI;
-    if (!response.ok) {
+    if (response.status !== "success") {
       setError(true);
-      return;
+      console.log("hola");
+      return false;
     }
     if (response.status === "success") {
       const busLinea = response.data.ibus.find(
         (busLinea) => busLinea.line === linea
       );
-      setBus(busLinea);
+      setBus(busLinea.line);
     }
+  };
+
+  const buscarLinea = (e) => {
+    setBus(e.target.value);
+    console.log(buscarLinea);
   };
 
   return (
@@ -42,9 +50,11 @@ export const FormNumParada = (props) => {
         type="number"
         id="num-parada"
         value={bus.line}
-        onChange={(e) => comprobarEstado(e)}
+        onChange={buscarLinea}
       />
-      <button type="submit">Buscar</button>
+      <button type="submit" onClick={comprobarEstado}>
+        Buscar
+      </button>
     </form>
   );
 };
