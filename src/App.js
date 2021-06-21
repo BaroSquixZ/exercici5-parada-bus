@@ -14,7 +14,7 @@ function App() {
       </header>
       <section className="forms">
         <form>
-          <label htmlFor="num-parada">Parada nº: </label>
+          <NumParada> <label htmlFor="num-parada">Parada nº: </label></NumParada>
           <input type="number" id="num-parada" />
           <button type="submit">Buscar</button>
         </form>
