@@ -1,6 +1,28 @@
-export const FormTiempoLlegarLinea = (props) => {
-  const { bus, setBus } = props;
+import { useCallback, useEffect, useState } from "react";
 
+export const FormTiempoLlegarLinea = (props) => {
+  const { parada, bus, setBus } = props;
+
+  const urlApi = "https://api.tmb.cat/v1/ibus/stops/";
+  const appId = "0031bdb3";
+  const appKey = "1eef12f633798f1b3f0427e9c6e39525";
+  const [buses, setBuses] = useState({});
+
+  /* const getBuses = useCallback(async () => {
+    const response = await fetch(
+      `${urlApi}${parada}?app_id=${appId}&app_key=${appKey}`
+    );
+    if (!response.ok) {
+      return false;
+    }
+    const dataBuses = await response.json();
+    setBuses(dataBuses);
+  }, [parada]);
+
+  useEffect(() => {
+    getBuses();
+  }, [getBuses]);
+ */
   const {
     status,
     data: { ibus },
