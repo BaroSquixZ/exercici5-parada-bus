@@ -1,4 +1,9 @@
 export const FormNumParada = (props) => {
+feature-numparadas
+    return
+
+}
+=======
   const { setError, bus, setBus } = props;
   const urlAPI = "https://api.tmb.cat/v1/ibus/stops/2775?";
   const appId = "b3956491";
@@ -58,3 +63,4 @@ export const FormNumParada = (props) => {
     </form>
   );
 };
+main

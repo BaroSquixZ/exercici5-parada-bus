@@ -17,8 +17,17 @@ function App() {
         <TiempoParaLinea bus={bus} />
       </header>
       <section className="forms">
+        feature-numparadas
+        <form>
+          <NumParada> <label htmlFor="num-parada">Parada nº: </label></NumParada>
+          <input type="number" id="num-parada" />
+          <button type="submit">Buscar</button>
+        </form>
+        <FormTiempoLlegarLinea bus={bus} setBus={setBus} />
+=======
         <FormNumParada setError={setError} setBus={setBus} bus={bus} />
         <FormTiempoLlegarLinea parada={parada} bus={bus} setBus={setBus} />
+          main
       </section>
     </div>
   );
