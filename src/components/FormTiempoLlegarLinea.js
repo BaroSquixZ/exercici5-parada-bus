@@ -1,5 +1,6 @@
 export const FormTiempoLlegarLinea = (props) => {
-  const { setTiempo, linea, setLinea } = props;
+  const { bus, setBus } = props;
+
   const {
     status,
     data: { ibus },
@@ -34,19 +35,30 @@ export const FormTiempoLlegarLinea = (props) => {
       ],
     },
   };
+
   const escogerLinea = (e) => {
+    const linea = e.target.value;
+    if (linea === "") {
+      setBus({});
+      return;
+    }
     if (status === "success") {
-      setLinea(e.target.value);
+      const busLinea = ibus.find((busLinea) => busLinea.line === linea);
+      setBus(busLinea);
     }
   };
   return (
     <form>
       <label htmlFor="tiempo-linea">Tiempo para que llegue la línea: </label>
-      <select id="tiempo-linea" value={linea} onChange={(e) => escogerLinea(e)}>
+      <select
+        id="tiempo-linea"
+        value={bus.line}
+        onChange={(e) => escogerLinea(e)}
+      >
         <option value="">Elige línea</option>
-        {ibus.map((bus) => (
-          <option value={bus.line} key={bus.line}>
-            {bus.line}
+        {ibus.map(({ line }) => (
+          <option value={line} key={line}>
+            {line}
           </option>
         ))}
       </select>

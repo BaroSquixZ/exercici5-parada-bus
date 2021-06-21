@@ -4,14 +4,13 @@ import { FormTiempoLlegarLinea } from "./components/FormTiempoLlegarLinea.js";
 import { TiempoParaLinea } from "./components/TiempoParaLinea.js";
 
 function App() {
-  const [tiempo, setTiempo] = useState("");
-  const [linea, setLinea] = useState("");
+  const [bus, setBus] = useState({});
   return (
     <div className="contenedor">
       <header className="cabecera">
         <h1>Parada nº 15</h1>
         <Display />
-        <TiempoParaLinea tiempo={tiempo} linea={linea} />
+        <TiempoParaLinea bus={bus} />
       </header>
       <section className="forms">
         <form>
@@ -19,11 +18,7 @@ function App() {
           <input type="number" id="num-parada" />
           <button type="submit">Buscar</button>
         </form>
-        <FormTiempoLlegarLinea
-          setTiempo={setTiempo}
-          linea={linea}
-          setLinea={setLinea}
-        />
+        <FormTiempoLlegarLinea bus={bus} setBus={setBus} />
       </section>
     </div>
   );
