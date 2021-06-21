@@ -7,6 +7,8 @@ import { TiempoParaLinea } from "./components/TiempoParaLinea.js";
 function App() {
   const [bus, setBus] = useState({});
   const [error, setError] = useState(false);
+  const [parada, setParada] = useState("2775"); //Variable que seteja el POL
+
   return (
     <div className="contenedor">
       <header className="cabecera">
@@ -16,7 +18,7 @@ function App() {
       </header>
       <section className="forms">
         <FormNumParada setError={setError} setBus={setBus} bus={bus} />
-        <FormTiempoLlegarLinea bus={bus} setBus={setBus} />
+        <FormTiempoLlegarLinea parada={parada} bus={bus} setBus={setBus} />
       </section>
     </div>
   );
